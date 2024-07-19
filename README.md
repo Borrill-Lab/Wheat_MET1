@@ -1,8 +1,11 @@
 # Wheat_MET1
 
+## Data
+Raw read files for RNA-seq and Whole Genome Bisulfite Sequencing (WGBS) data can be found [here]().  
+
 ## Analysis of Whole Genome Bisulfite Sequencing (WGBS) Data
 
-All scripts for the WGBS analysis are found in the 'WGBS' folder.  
+All scripts for the WGBS analysis are found in the [WGBS](https://github.com/Borrill-Lab/Wheat_MET1/tree/main/WGBS) folder.  
   
 - **Trim**: fastp.pl  
 - **Map to bisulfite-converted reference**: bismark.pl  
