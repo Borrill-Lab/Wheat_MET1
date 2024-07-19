@@ -1,7 +1,11 @@
 # Wheat_MET1
 
 ## Data
-Raw read files for RNA-seq and Whole Genome Bisulfite Sequencing (WGBS) data can be found [here]().  
+Raw read files for RNA-seq and Whole Genome Bisulfite Sequencing (WGBS) data can be found here.  
+
+## Analysis of RNA-seq Data  
+
+All scripts for the RNA-seq analysis are found in the [RNA-seq]() folder.
 
 ## Analysis of Whole Genome Bisulfite Sequencing (WGBS) Data
 
