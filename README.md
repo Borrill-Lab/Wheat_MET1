@@ -1,7 +1,7 @@
 # Wheat_MET1
 
 ## Data
-Raw read files for RNA-seq and Whole Genome Bisulfite Sequencing (WGBS) data can be found here.  
+Raw read files for RNA-seq and Whole Genome Bisulfite Sequencing (WGBS) data can be found in the ENA with accession numbers PRJEB77425 and PRJEB77426 respectively.  
 
 ## Analysis of RNA-seq Data  
 
