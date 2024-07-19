@@ -48,7 +48,7 @@ chdir("$read_path_triticum") or die "couldn't move to specific read directory";
 my $SLURM_header = <<"SLURM";
 #!/bin/bash
 #
-# SLURM batch script to launch parallel hisat2 tasks
+# SLURM batch script to launch parallel tasks
 #
 #SBATCH -p jic-medium
 #SBATCH -t 0-05:00
