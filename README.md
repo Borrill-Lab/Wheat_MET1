@@ -8,9 +8,7 @@ All scripts for the WGBS analysis are found in the 'WGBS' folder.
 **Map to bisulfite-converted reference**: bismark.pl  
 **Extract methylation data and produce CX_report**: bismark_methylation_extraction.pl  
 **Split CX_report files into separate chromosomes**: filter_all_chromosomes.sh  
-**Produce methylation profile plots**: plot_all_chrom.R run via plot_all_chrom.sh  
-- Produces Figures 3D-F and Supplementary Figures 5-11  
-**Plot absolute difference in methylation between WT and *met1* mutants**:  
-- Produces Supplementary Figure 4  
+**Produce methylation profile plots**: plot_all_chrom.R run via plot_all_chrom.sh (produces Figures 3D-F and Supplementary Figures 5-11)  
+**Plot absolute difference in methylation between WT and *met1* mutants**:(produces Supplementary Figure 4)  
 **Plot methylation profile plots for all single and double mutants**:  
 **Call CG-DMRs**: call_DMRs_all_chrom.R run via call_DMRs.sh
