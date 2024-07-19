@@ -5,7 +5,15 @@ Raw read files for RNA-seq and Whole Genome Bisulfite Sequencing (WGBS) data can
 
 ## Analysis of RNA-seq Data  
 
-All scripts for the RNA-seq analysis are found in the [RNA-seq]() folder.
+All scripts for the RNA-seq analysis are found in the [RNA-seq](https://github.com/Borrill-Lab/Wheat_MET1/tree/main/RNA-seq) folder.  
+
+- **Trim**: fastp.pl
+- **Pseudoalignment & quantification with kallisto**: kallisto.pl
+- **Import quantifications and summarise at gene level**: import_kallisto_quantifications.R
+- **Identify differentially expressed genes (DEGs) in *met1* mutants**: DESeq_analysis_MET1_vs_AABBDD.R
+- **Plot the number of DEGs in each of the *met1* mutants**: number_of_DEGs_plot.R (produces Figures 4A-B)
+- **Plot particularly interesting genes**: plot_genes_of_interest.R (produces Figure 4C)
+- **Gene Ontology enrichment for DEGs in Aabbdd mutant**: GO_enrichment_MET1_vs_AABBDD.R (produces Figures 4D-E)
 
 ## Analysis of Whole Genome Bisulfite Sequencing (WGBS) Data
 
