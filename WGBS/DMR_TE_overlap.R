@@ -7,6 +7,7 @@ library(ggplot2)
 
 setwd("Z:/Delfi/MET1_WGBS/DMR_overlap")
 
+##Looking at hypo- and hyper-DMRs separately
 mutants <- c("A_single","B_single","D_single","AB_double","AD_double","BD_double","Aabbdd")
 
 number_TE_DMRs <- NULL
@@ -17,6 +18,8 @@ number_subfamily_DMRs_hyper <- NULL
 
 for(i in 1:7){
   mutant <- mutants[i]
+  
+  ##Hypo-DMRs
   
   mutant_overlap_hypo <- read.table(paste(mutant,"_overlap_hypoDMRs_TEs.txt",sep=""), sep="\t")
   
@@ -32,6 +35,8 @@ for(i in 1:7){
     filter(row_number()==1)
   
   #Separate out by TE family
+  mutant_overlap_hypo_class1 <- subset(mutant_overlap_hypo_unique, grepl("compo=R",Compo))
+  mutant_overlap_hypo_class2 <- subset(mutant_overlap_hypo_unique, grepl("compo=D",Compo))
   mutant_overlap_hypo_LTR <- subset(mutant_overlap_hypo_unique, grepl("compo=RL",Compo))
   mutant_overlap_hypo_Copia <- subset(mutant_overlap_hypo_unique, grepl("RLC",Compo))
   mutant_overlap_hypo_Gypsy <- subset(mutant_overlap_hypo_unique, grepl("RLG",Compo))
@@ -44,6 +49,8 @@ for(i in 1:7){
   mutant_overlap_hypo_Fatima <- subset(mutant_overlap_hypo_unique, grepl("RLG_famc1",Compo))
   mutant_overlap_hypo_Sumana <- subset(mutant_overlap_hypo_unique, grepl("RLG_famc7",Compo))
   mutant_overlap_hypo_WHAM <- subset(mutant_overlap_hypo_unique, grepl("RLG_famc5",Compo))
+  
+  ##Hyper-DMRs
   
   mutant_overlap_hyper <- read.table(paste(mutant,"_overlap_hyperDMRs_TEs.txt",sep=""), sep="\t")
   
@@ -59,11 +66,13 @@ for(i in 1:7){
     filter(row_number()==1)
   
   #Separate out by TE family
+  mutant_overlap_hyper_class1 <- subset(mutant_overlap_hyper_unique, grepl("compo=R",Compo))
+  mutant_overlap_hyper_class2 <- subset(mutant_overlap_hyper_unique, grepl("compo=D",Compo))
   mutant_overlap_hyper_LTR <- subset(mutant_overlap_hyper_unique, grepl("compo=RL",Compo))
   mutant_overlap_hyper_Copia <- subset(mutant_overlap_hyper_unique, grepl("RLC",Compo))
   mutant_overlap_hyper_Gypsy <- subset(mutant_overlap_hyper_unique, grepl("RLG",Compo))
   mutant_overlap_hyper_TIR <- subset(mutant_overlap_hyper_unique, grepl("compo=DT",Compo))
-  
+
   #Separate into 6 most common TE families
   mutant_overlap_hyper_Angela <- subset(mutant_overlap_hyper_unique, grepl("RLC_famc1",Compo))
   mutant_overlap_hyper_Jorge <- subset(mutant_overlap_hyper_unique, grepl("DTC_famc2",Compo))
@@ -79,11 +88,13 @@ for(i in 1:7){
   mutant_number_TE_DMRs <- cbind(mutant, nrow(mutant_overlap_unique), nrow(mutant_overlap_hypo_unique), nrow(mutant_overlap_hyper_unique))
   number_TE_DMRs <- rbind(number_TE_DMRs, mutant_number_TE_DMRs)
   
-  mutant_number_family_DMRs_hypo <- cbind(mutant, nrow(mutant_overlap_hypo_unique), nrow(mutant_overlap_hypo_LTR), 
-                                          nrow(mutant_overlap_hypo_Copia), nrow(mutant_overlap_hypo_Gypsy), nrow(mutant_overlap_hypo_TIR))
+  mutant_number_family_DMRs_hypo <- cbind(mutant, nrow(mutant_overlap_hypo_unique), nrow(mutant_overlap_hypo_class1),
+                                           nrow(mutant_overlap_hypo_class2), nrow(mutant_overlap_hypo_LTR),
+                                           nrow(mutant_overlap_hypo_Copia), nrow(mutant_overlap_hypo_Gypsy),nrow(mutant_overlap_hypo_TIR))
   number_family_DMRs_hypo <- rbind(number_family_DMRs_hypo, mutant_number_family_DMRs_hypo)
   
-  mutant_number_family_DMRs_hyper <- cbind(mutant, nrow(mutant_overlap_hyper_unique), nrow(mutant_overlap_hyper_LTR),
+  mutant_number_family_DMRs_hyper <- cbind(mutant, nrow(mutant_overlap_hyper_unique), nrow(mutant_overlap_hyper_class1),
+                                           nrow(mutant_overlap_hyper_class2), nrow(mutant_overlap_hyper_LTR),
                                            nrow(mutant_overlap_hyper_Copia), nrow(mutant_overlap_hyper_Gypsy),nrow(mutant_overlap_hyper_TIR))
   number_family_DMRs_hyper <- rbind(number_family_DMRs_hyper, mutant_number_family_DMRs_hyper)
   
@@ -102,15 +113,15 @@ for(i in 1:7){
 
 colnames(number_TE_DMRs) <- c("Mutant","Total TE-DMRs","TE_Hypo-DMRs","TE_Hyper-DMRs")
 
-#Total number of TEs (excluding chrUn) is 853523
+#Total number of TEs (excluding chrUn) is 852712
 number_TE_DMRs <- data.frame(number_TE_DMRs)
 number_TE_DMRs$Total.TE.DMRs <- as.numeric(number_TE_DMRs$Total.TE.DMRs)
 number_TE_DMRs$TE_Hypo.DMRs <- as.numeric(number_TE_DMRs$TE_Hypo.DMRs)
 number_TE_DMRs$TE_Hyper.DMRs <- as.numeric(number_TE_DMRs$TE_Hyper.DMRs)
 
-number_TE_DMRs$Total_TE_percent <- (number_TE_DMRs$Total.TE.DMRs/853523)*100
-number_TE_DMRs$Total_HypoTE_percent <- (number_TE_DMRs$TE_Hypo.DMRs/853523)*100
-number_TE_DMRs$Total_HyperTE_percent <- (number_TE_DMRs$TE_Hyper.DMRs/853523)*100
+number_TE_DMRs$Total_TE_percent <- (number_TE_DMRs$Total.TE.DMRs/852712)*100
+number_TE_DMRs$Total_HypoTE_percent <- (number_TE_DMRs$TE_Hypo.DMRs/852712)*100
+number_TE_DMRs$Total_HyperTE_percent <- (number_TE_DMRs$TE_Hyper.DMRs/852712)*100
 
 number_TE_DMRs <- pivot_longer(number_TE_DMRs, cols=Total_HypoTE_percent:Total_HyperTE_percent,
                                names_to="Type",values_to="Percentage")
@@ -125,3 +136,24 @@ ggplot(number_TE_DMRs, aes(x=Mutant, y=Percentage, fill=Type)) +
 
 setwd("U:/Year1/met1 Mutants Project/WGBS_analysis/")
 ggsave("percentage_TE_DMRs.pdf", width=5, height=5, units="in")
+
+#TE Families
+number_family_DMRs_hypo <- as.data.frame(number_family_DMRs_hypo)
+colnames(number_family_DMRs_hypo) <- c("Genotype","Total","class1","class2","LTR","Copia","Gypsy","TIR")
+number_family_DMRs_hypo$Total <- as.numeric(number_family_DMRs_hypo$Total)
+number_family_DMRs_hypo$class1 <- as.numeric(number_family_DMRs_hypo$class1)
+number_family_DMRs_hypo$class2 <- as.numeric(number_family_DMRs_hypo$class2)
+number_family_DMRs_hypo$LTR <- as.numeric(number_family_DMRs_hypo$LTR)
+number_family_DMRs_hypo$Copia <- as.numeric(number_family_DMRs_hypo$Copia)
+number_family_DMRs_hypo$Gypsy <- as.numeric(number_family_DMRs_hypo$Gypsy)
+number_family_DMRs_hypo$TIR <- as.numeric(number_family_DMRs_hypo$TIR)
+
+
+number_family_DMRs_hypo$class1.percent <- (number_family_DMRs_hypo$class1/number_family_DMRs_hypo$Total)*100
+number_family_DMRs_hypo$class2.percent <- (number_family_DMRs_hypo$class2/number_family_DMRs_hypo$Total)*100
+number_family_DMRs_hypo$LTR.percent <- (number_family_DMRs_hypo$LTR/number_family_DMRs_hypo$Total)*100
+number_family_DMRs_hypo$Copia.percent <- (number_family_DMRs_hypo$Copia/number_family_DMRs_hypo$Total)*100
+number_family_DMRs_hypo$Gypsy.percent <- (number_family_DMRs_hypo$Gypsy/number_family_DMRs_hypo$Total)*100
+number_family_DMRs_hypo$TIR.percent <- (number_family_DMRs_hypo$TIR/number_family_DMRs_hypo$Total)*100
+
+write.csv(number_family_DMRs_hypo, "Family_TE_DMRs.csv")
