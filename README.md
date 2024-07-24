@@ -23,9 +23,11 @@ All scripts for the WGBS analysis are found in the [WGBS](https://github.com/Bor
 - **Create bisulfite-converted reference**: bismark_index.sh, requires IWGSC v1.0 genome, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Assemblies/v1.0/)  
 - **Map to bisulfite-converted reference**: bismark.pl  
 - **Extract methylation data and produce CX_report**: bismark_methylation_extraction.pl  
-- **Split CX_report files into separate chromosomes**: filter_all_chromosomes.sh  
-- **Produce methylation profile plots**: plot_all_chrom.R run via plot_all_chrom.sh (produces Figures 3D-F and Supplementary Figures 5-11)  
-- **Plot absolute difference in methylation between WT and *met1* mutants**: plot_all_chrom_difference.R run via plot_all_chrom_difference.sh (produces Supplementary Figure 4)  
+- **Split CX_report files into separate chromosomes**: filter_all_chromosomes.sh
+- **Convert gene and transposon gff3 files to gtf files and filter for chromosome of interest**: gff_to_gtf.sh and gff_to_gtf_TE.sh, requires IWGSC v1.1 HC genes gff3 file, available [here]() and IWGSC Transposable Elements gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.0/)
+- **Plot average methylation across genes and TEs**: computeMatrix_5D.sh and plotProfile_5D.sh (produces Figures 3B-C and Supplementary Figure 4) 
+- **Produce methylation profile plots**: plot_all_chrom.R run via plot_all_chrom.sh (produces Figures 3D-F and Supplementary Figures 6-12)  
+- **Plot absolute difference in methylation between WT and *met1* mutants**: plot_all_chrom_difference.R run via plot_all_chrom_difference.sh (produces Supplementary Figure 5)  
 - **Plot methylation profile plots for all single and double mutants**: plot_all_chrom_singles.R run via plot_all_chrom_singles.sh, and plot_all_chrom_doubles.R run via plot_all_chrom_doubles.sh (produces Supplementary Figure 12)  
 - **Call CG-DMRs**: call_DMRs_all_chrom.R run via call_DMRs.sh  
 - **Combine DMRs from all chromosomes, plot number of DMRs, and density of DMRs in chromosome regions**: combine_all_DMRs.R (produces Figures 3G-H and Supplementary Figure 13)  
