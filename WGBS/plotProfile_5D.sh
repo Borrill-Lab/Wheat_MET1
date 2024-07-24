@@ -12,8 +12,8 @@ source package 6daf0c37-1c5e-4cd6-9884-2d0b4d5f9d8f
 
 cd /jic/scratch/groups/Philippa-Borrill/Delfi/MET1_WGBS/filter_by_chrom/average_methylation/
 
-plotProfile -m gene_matrix_3A.gz \
--o gene_CGmethylation_3A.pdf \
+plotProfile -m gene_matrix_5A.gz \ #Edit input matrix file here eg for different methylation context
+-o gene_CGmethylation_5A.pdf \
 --averageType "mean" \
 --plotType "lines" \
 --colors black yellow blue red \
