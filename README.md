@@ -24,6 +24,7 @@ All scripts for the WGBS analysis are found in the [WGBS](https://github.com/Bor
 - **Map to bisulfite-converted reference**: bismark.pl  
 - **Extract methylation data and produce CX_report**: bismark_methylation_extraction.pl  
 - **Split CX_report files into separate chromosomes**: filter_all_chromosomes.sh
+- **Split CX_report files by sequence context and convert to bigwig files**: CXreport_to_bigwig.R run via CXreport_to_bigwig.sh 
 - **Convert gene and transposon gff3 files to gtf files and filter for chromosome of interest**: gff_to_gtf.sh and gff_to_gtf_TE.sh, requires IWGSC v1.1 HC genes gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.1/) and IWGSC Transposable Elements gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.0/)
 - **Plot average methylation across genes and TEs**: computeMatrix_5D.sh and plotProfile_5D.sh (produces Figures 3B-C and Supplementary Figure 4) 
 - **Produce methylation profile plots**: plot_all_chrom.R run via plot_all_chrom.sh (produces Figures 3D-F and Supplementary Figures 6-12)  
