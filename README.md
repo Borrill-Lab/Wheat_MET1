@@ -13,7 +13,7 @@ All scripts for the RNA-seq analysis are found in the [RNA-seq](https://github.c
 - **Identify differentially expressed genes (DEGs) in *met1* mutants**: DESeq_analysis_MET1_vs_AABBDD.R
 - **Plot the number of DEGs in each of the *met1* mutants**: number_of_DEGs_plot.R (produces Figures 4A-B)
 - **Plot particularly interesting genes**: plot_genes_of_interest.R (produces Figure 4C)
-- **Gene Ontology enrichment for DEGs in Aabbdd mutant**: GO_enrichment_MET1_vs_AABBDD.R (produces Figures 4D-E), requires file to convert v1.0 gene IDs to v1.1, available [here](https://github.com/Borrill-Lab/WheatFlagLeafSenescence/blob/master/data/genes_to_transfer_qcov90_pident99_same_ID.csv) and file with GO terms, available [here](https://github.com/Borrill-Lab/WheatFlagLeafSenescence/blob/master/data/IWGSC_stress_GO.csv)
+- **Gene Ontology enrichment for DEGs in Aabbdd mutant**: GO_enrichment_MET1_vs_AABBDD.R (produces Figures 4D-E), requires file to convert v1.0 gene IDs to v1.1, available [here](https://github.com/Borrill-Lab/WheatFlagLeafSenescence/blob/master/data/genes_to_transfer_qcov90_pident99_same_ID.csv), and file with GO terms, available [here](https://github.com/Borrill-Lab/WheatFlagLeafSenescence/blob/master/data/IWGSC_stress_GO.csv)
 
 ## Analysis of Whole Genome Bisulfite Sequencing (WGBS) Data
 
