@@ -18,7 +18,7 @@ library(RColorBrewer)
 all_go <- read.csv("IWGSC_stress_GO.csv") #file from https://github.com/Borrill-Lab/WheatFlagLeafSenescence/blob/master/data/IWGSC_stress_GO.csv
 head(all_go) #Gene IDs are v1.0, so need to convert to v1.1
 
-v1.0_v1.1 <- read.csv("v1.0_to_v1.1.csv")
+v1.0_v1.1 <- read.csv("genes_to_transfer_qcov90_pident99_same_ID.csv") #file from https://github.com/Borrill-Lab/WheatFlagLeafSenescence/blob/master/data/genes_to_transfer_qcov90_pident99_same_ID.csv
 all_go <- merge(all_go, v1.0_v1.1, by.x="Gene", by.y="gene_v1.0")
 all_go <- dplyr::select(all_go, ID:gene_v1.1)
 
