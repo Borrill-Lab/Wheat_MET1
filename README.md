@@ -24,7 +24,7 @@ All scripts for the WGBS analysis are found in the [WGBS](https://github.com/Bor
 - **Map to bisulfite-converted reference**: bismark.pl  
 - **Extract methylation data and produce CX_report**: bismark_methylation_extraction.pl  
 - **Split CX_report files into separate chromosomes**: filter_all_chromosomes.sh
-- **Convert gene and transposon gff3 files to gtf files and filter for chromosome of interest**: gff_to_gtf.sh and gff_to_gtf_TE.sh, requires IWGSC v1.1 HC genes gff3 file, available [here]() and IWGSC Transposable Elements gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.0/)
+- **Convert gene and transposon gff3 files to gtf files and filter for chromosome of interest**: gff_to_gtf.sh and gff_to_gtf_TE.sh, requires IWGSC v1.1 HC genes gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.1/) and IWGSC Transposable Elements gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.0/)
 - **Plot average methylation across genes and TEs**: computeMatrix_5D.sh and plotProfile_5D.sh (produces Figures 3B-C and Supplementary Figure 4) 
 - **Produce methylation profile plots**: plot_all_chrom.R run via plot_all_chrom.sh (produces Figures 3D-F and Supplementary Figures 6-12)  
 - **Plot absolute difference in methylation between WT and *met1* mutants**: plot_all_chrom_difference.R run via plot_all_chrom_difference.sh (produces Supplementary Figure 5)  
@@ -32,7 +32,7 @@ All scripts for the WGBS analysis are found in the [WGBS](https://github.com/Bor
 - **Call CG-DMRs**: call_DMRs_all_chrom.R run via call_DMRs.sh  
 - **Combine DMRs from all chromosomes, plot number of DMRs, and density of DMRs in chromosome regions**: combine_all_DMRs.R (produces Figures 3G-H and Supplementary Figure 13)  
 - **Convert DMR files into bed files**: DMRs_to_bed.R  
-- **Filter gff file with genes and add 1kb up- and downstream**: gff_to_genes1kb.R, requires IWGSC v1.1 HC genes gff3 file, available [here]()   
+- **Filter gff file with genes and add 1kb up- and downstream**: gff_to_genes1kb.R, requires IWGSC v1.1 HC genes gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.1/)   
 - **Find overlap between genes and DMRs**: DMRs_intersect_genes.sh  
 - **Plot number of genes overlapping DMRs and identify overlap with DEGs**: DMR_gene_overlap.R (produces Figures 5A,C-D)  
 - **Filter gff file with TEs**: TEgff_to_completeTE.R, requires IWGSC Transposable Elements gff3 file, available [here](https://urgi.versailles.inra.fr/download/iwgsc/IWGSC_RefSeq_Annotations/v1.0/)  
